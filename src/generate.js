@@ -73,7 +73,6 @@ async function main() {
     .filter((q) => q.categoryNumber === '4' && q.quality === '3')
     .slice(0, MAX_QUESTIONS_PER_CATEGORY);
 
-  console.log(qualityHistoryQuestions);
 
   //const output = generateQuestionHtml(qualityHistoryQuestions[0]);
   const output = qualityHistoryQuestions.map(generateQuestionHtml).join('\n');
