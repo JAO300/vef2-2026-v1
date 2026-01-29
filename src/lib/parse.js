@@ -10,25 +10,10 @@ export function parseQuestions() {
 export function parseLine(line) {
   const split = line.split(',');
 
-  // TODO mappa categoryNumber yfir í streng skv skjölun
-  /*
-    1 	Almenn kunnátta
-    2 	Náttúra og vísindi
-    3 	Bókmenntir og listir
-    4 	Saga
-    5 	Landafræði
-    6 	Skemmtun og afþreying
-    7 	Íþróttir og tómstundir
-    */
+  if(split.length !== 5){
+    return null
+  }
 
-  /*
-1 	Nei 	Flokkanúmer
-2 	Já 	Undirflokkur ef til staðar
-3 	Nei 	Erfiðleikastig: 1: Létt, 2: Meðal, 3: Erfið
-4 	Já 	Gæðastig: 1: Slöpp, 2: Góð, 3: Ágæt
-5 	Nei 	Spurningin
-6 	Nei 	Svarið
-*/
   const categoryNumber = split[0];
   const subCategory = split[1];
   const difficulty = split[2];
