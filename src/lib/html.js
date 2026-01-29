@@ -9,7 +9,14 @@ export function generateIndexHtml(){
         <p> Velkomin!</p>
         <ul>
           <li><a href="saga.html">Saga</a></li>
-</ul>
+          <li><a href="almenn.html">Almenn kunnátta</a></li>
+          <li><a href="nattura.html">Náttúra og vísindi</a></li>
+          <li><a href="bokmenntir.html">Bókmenntir og listir</a></li>
+          <li><a href="landafraedi.html">Landafræði</a></li>
+          <li><a href="skemmtun.html">Skemmtun og afþreying</a></li>
+          <li><a href="ithrottir.html">Íþróttir og tómstundir</a></li>
+
+
       </body>
     </html>
   `;
