@@ -23,4 +23,19 @@ describe('parse', () => {
     })
 
   })
-});
+  describe('parseLine', () =>{
+    it('should normalize double quotes in quoted question', () => {
+      // Arrange
+      const input = '6,Tónlist,2,,"Hvaða lag er ""Rangur maður""?",Svar';
+    
+      // Act
+      const output = parseLine(input);
+    
+      // Assert
+      assert.strictEqual(
+        output?.question,
+        'Hvaða lag er "Rangur maður"?'
+      );
+    });    
+})
+})

@@ -18,9 +18,9 @@ export function parseLine(line) {
   const subCategory = split[1];
   const difficulty = split[2];
   const quality = split[3];
-  const question = split[4];
-  const answer = split[5];
-
+  const question = normalizeDoubleQuotes(split[4]);
+  const answer = normalizeDoubleQuotes(split[5]);
+  
   const q = {
     categoryNumber,
     subCategory,
@@ -32,3 +32,24 @@ export function parseLine(line) {
 
   return q;
 }
+
+function normalizeDoubleQuotes(str) {
+  if (!str) return str;
+
+  if (str.startsWith('"') && str.endsWith('"')) {
+    str = str.slice(1, -1);
+  }
+
+  let result = '';
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === '"' && str[i + 1] === '"') {
+      result += '"';
+      i++;
+    } else {
+      result += str[i];
+    }
+  }
+
+  return result;
+}
+
