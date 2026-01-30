@@ -2,6 +2,7 @@ export function generateIndexHtml() {
   const html = /* HTML */ `
   <html>
       <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="styles.css">
       </head>
       <body>
@@ -40,6 +41,8 @@ export function generateQuestionCategoryHtml(title, questionsHtml) {
     <html>
       <head>
         <script src="scripts.js" type="module"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
       </head>
       <body>
         <h1>Spurningaleikur!</h1>
