@@ -1,42 +1,44 @@
 /* útfæra */
 
 
-
 const correctElement = document.querySelector('.counter .correct');
 const incorrectElement = document.querySelector('.counter .incorrect');
 
-if(!correctElement || !incorrectElement) {
-    console.error('unable to find elements');
+if (!correctElement || !incorrectElement) {
+  console.error('unable to find elements');
 }
 
-
 function questionAnswerHandler(e) {
-    const button = e.target;
+  const button = e.target;
 
-    const isCorrect = button.classList.contains('button-correct');
-    const parentQuestion = button.closest('section .question');
+  const isCorrect = button.classList.contains('button-correct');
+  const parentQuestion = button.closest('section.question');
+  if (!parentQuestion) return;
+  console.log(parentQuestion);
 
-    console.log(parentQuestion);
-//TODO  disable a takka
-    if (!correctElement) {
-        throw new Error('missing correct element');
-    }
+  if (!correctElement) {
+    throw new Error('missing correct element');
+  }
 
-    if (isCorrect) {
-        const currentCorrectText = correctElement.textContent;
-        const currentCorrect = Number.parseInt(currentCorrectText ?? '0');
-
-        const updatedCorrect = currentCorrect + 1;
-
-        correctElement.textContent = updatedCorrect.toString();
-        
-    }
-
+  if (isCorrect) {
+    const currentCorrectText = correctElement.textContent;
+    const currentCorrect = Number.parseInt(currentCorrectText ?? '0');
+    const updatedCorrect = currentCorrect + 1;
+    correctElement.textContent = updatedCorrect.toString();
+  } else {
+    const currentIncorrectText = incorrectElement.textContent;
+    const currentIncorrect = Number.parseInt(currentIncorrectText ?? '0');
+    const updatedIncorrect = currentIncorrect + 1;
+    incorrectElement.textContent = String(updatedIncorrect);
+  }
+  // Disablea báða buttons 
+  const qButtons = parentQuestion.querySelectorAll('button');
+  for (const button of qButtons) {
+    button.disabled = true;
+  }
 }
 
 const buttons = document.querySelectorAll('button');
-
-
-for (const button of buttons){
-    button.addEventListener('click', questionAnswerHandler);
+for (const button of buttons) {
+  button.addEventListener('click', questionAnswerHandler);
 }
