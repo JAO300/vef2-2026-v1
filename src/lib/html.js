@@ -1,22 +1,22 @@
-export function generateIndexHtml(){
-  
+export function generateIndexHtml() {
   const html = /* HTML */ `
   <html>
       <head>
+      <link rel="stylesheet" href="styles.css">
       </head>
       <body>
+      <main class="container">
         <h1>Spurningaleikur!</h1>
         <p> Velkomin!</p>
-        <ul>
-          <li><a href="saga.html">Saga</a></li>
-          <li><a href="almenn.html">Almenn kunnátta</a></li>
-          <li><a href="nattura.html">Náttúra og vísindi</a></li>
-          <li><a href="bokmenntir.html">Bókmenntir og listir</a></li>
-          <li><a href="landafraedi.html">Landafræði</a></li>
-          <li><a href="skemmtun.html">Skemmtun og afþreying</a></li>
-          <li><a href="ithrottir.html">Íþróttir og tómstundir</a></li>
-
-
+        <ul class="category-list">
+          <li><a class ="category-button" href="saga.html">Saga</a></li>
+          <li><a class ="category-button" href="almenn.html">Almenn kunnátta</a></li>
+          <li><a class ="category-button" href="nattura.html">Náttúra og vísindi</a></li>
+          <li><a class ="category-button" href="bokmenntir.html">Bókmenntir og listir</a></li>
+          <li><a class ="category-button" href="landafraedi.html">Landafræði</a></li>
+          <li><a class ="category-button" href="skemmtun.html">Skemmtun og afþreying</a></li>
+          <li><a class ="category-button" href="ithrottir.html">Íþróttir og tómstundir</a></li>
+</main>
       </body>
     </html>
   `;
@@ -49,7 +49,8 @@ export function generateQuestionCategoryHtml(title, questionsHtml) {
           <div class="incorrect">0</div>
         </div>
         <div class="questions">
-          <h2>${title}</h2>${questionsHtml}
+          <h2>${title}</h2>
+          ${questionsHtml}
         </div>
       </body>
     </html>
